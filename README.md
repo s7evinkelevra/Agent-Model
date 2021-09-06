@@ -1,18 +1,18 @@
----
-Title: Model V1
+# Agent based Model V1
 
-Question: What maintains the high level of polymorphism of classical MHC-I genes / high number of alleles per locus(?)?
+**Question:** What maintains the high level of polymorphism of classical MHC-I genes / high number of alleles per locus(?)?
 
-Hypothesis: [Fluctuating selection as important driver of MHC-I polymorphism (-> "introduction" of random/nove parasites), co-evolution only minor effect]
+**Hypothesis:** [Fluctuating selection as important driver of MHC-I polymorphism, co-evolution only minor effect]
 
-Approach: Create a agent-based (hosts and parasites as entities) simulation model that can approximate the interaction between multiple hosts and parasites and is able control and integrate the effects of different balancing selection mechanisms (HA/NFDS/FS) and multi-species co-evolution acting on the selection of MHC genes.
----
+**Approach:** Create a agent-based (hosts and parasites as entities) simulation model that can approximate the interaction between multiple hosts and parasites and is able control and integrate the effects of different balancing selection mechanisms (HA/NFDS/FS) and multi-species co-evolution acting on the selection of MHC genes.
 
-# Model V1
+```python
+python3 src/model.py # to run the model
+```
 
 ## Introduction
 
-## The model
+## The Model
 
 An agent based model simulates actions and interactions of autonomous agents (hosts and parasites) to investigate the behavior of a complex system (i.e. allele frequencies) [[wiki](https://en.wikipedia.org/wiki/Agent-based_model)]. [Complex behavior can arise from these interaction despite seemingly simple rules for the singular agent](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
