@@ -1,16 +1,18 @@
 # Agent based Model V1
 
-**Question:** What maintains the high level of polymorphism of classical MHC-I genes / high number of alleles per locus(?)?
+**Question:** What drives the landmark features of classical MHC-I genes (high polymorphism/TSP/positive selection at the PBD)?
 
-**Hypothesis:** [Fluctuating selection as important driver of MHC-I polymorphism, co-evolution only minor effect]
+**Hypothesis:** [Fluctuating selection as important driver of MHC-I polymorphism, co-evolution possibly only minor effect]
 
-**Approach:** Create a agent-based (hosts and parasites as entities) simulation model that can approximate the interaction between multiple hosts and parasites and is able control and integrate the effects of different balancing selection mechanisms (HA/NFDS/FS) and multi-species co-evolution acting on the selection of MHC genes.
+**Approach:** Create an agent-based (hosts and parasites as entities) simulation model that can approximate the interaction between multiple hosts and parasites and is able control and integrate the effects of different balancing selection mechanisms (HA/NFDS/FS) and multi-species co-evolution acting on the selection of MHC genes.
 
-```python
-python3 src/model.py # to run the model
+```bash
+python src/model.py # to run the model
 ```
 
 ## Introduction
+
+[WIP]
 
 ## The Model
 
@@ -20,10 +22,9 @@ The model is similarly structured to [Lighten et al 2017][Lighten], but with the
 
 ## Input
   - Number of host/parasite "species" (pools to draw alleles from)
-  - Generation times of host/parasite
   - Initial population sizes (population size remains constant during simulation)
   - Number of alleles per population
-  - MHC Promiscouity values (constant or distribution for random initialization)
+  - MHC promiscouity values (constant or distribution for random initialization)
   - Epitope/paratope space size
   - Infection regime
   - Reproduction regime
