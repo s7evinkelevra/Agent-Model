@@ -27,6 +27,7 @@ The model is similarly structured to [Lighten et al 2017][Lighten], but with the
   - MHC promiscouity values (constant or distribution for random initialization)
   - Epitope/paratope space size
   - Infection regime
+  - Fitness increments for the host (-> defines generation time, see host section)
   - Reproduction regime
   - Mutation rates for hosts and parasites
   - Co-Evolution ("Red Queen dynamics" -> selection of parasites based on their relative fitness + mutation)
@@ -44,7 +45,7 @@ The model is similarly structured to [Lighten et al 2017][Lighten], but with the
 
 ## Components
 
-The model will have a number of components which can interact with each other. Firstly, the agents, are the effective unit of the simulation and posses a set of properties (such as alleles) and rules ("reproduce when fitness reaches threshold") and update their properties and act on their rules once each simulation cycle. Secondly, there are the infection regime, reproduction regime and the epitope/paratope space (fitness calculation), which describe the environment the agents act in.
+The model has a number of components which can interact with each other. Firstly, the agents. They are the effective unit of the simulation and posses a set of properties (such as alleles) and rules ("reproduce when fitness reaches threshold") and update their properties and act on their rules once each simulation cycle. Secondly, there are the infection regime, reproduction regime and the epitope/paratope space (fitness calculation), which describe the environment the agents act in.
 
 ### Agents
 
@@ -52,9 +53,9 @@ The model will have a number of components which can interact with each other. F
 
 The host is a diploid organism that can reproduce sexually. With whom the host reproduces is determined by the reproduction regime and when is dependent on host fitness. A host can carry one or more MHC loci with 2 alleles each. If there are 2 or more loci, linkage/recombination could be considered.
 
-The hosts alleles represent the Peptide Binding Domain (PBD) of MHC-I molecule, which can bind to a repertoire of epitopes. The size of that repertoire is promiscuity of that MHC-I variant. Which epitopes the MHC-I variant can bind is represented by the 2D-coordinates in the epitope/paratope space, the size of the repertoire is represented by the area covered in the epitope/paratope space.
+The hosts alleles represent the Peptide Binding Domain (PBD) of MHC-I molecule, which can bind to a repertoire of epitopes. The size of that repertoire is the promiscuity of that MHC-I variant. Which epitopes the MHC-I variant can bind is represented by the 2D-coordinates in the epitope/paratope space, the size of the repertoire is represented by the area covered in the epitope/paratope space.
 
-Fitness calculation is relative (to maintain constant population size), such that the number of offspring is always equal the number of dying hosts. More details in the fitness calculation Section.
+Fitness calculation is relative (to maintain a constant population size), such that the number of offspring is always equal the number of dying hosts. More details in the fitness calculation Section.
 
 ##### Properties
   - Locus/Loci
@@ -62,6 +63,7 @@ Fitness calculation is relative (to maintain constant population size), such tha
   - Fitness (0 to 1)
   - Fitness increment steps -> host generation time = fitness increment step * parasite generation time (1)
     - Fitness increment value = 1/increment steps
+  - Number of offspring -> depends on fitness calculation; if 50% of hosts die each generation, the remaining 50 need to produce on offspring each (2 gametes)
   - Age
 
 ##### Rules
