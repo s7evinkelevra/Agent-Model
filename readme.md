@@ -28,7 +28,6 @@ The model is similarly structured to [Lighten et al 2017][Lighten], but with the
   - Epitope/paratope space size
   - Infection regime
   - Fitness increments for the host (-> defines generation time, see host section)
-  - Relative fitness value -> ratio of surviving/dying hosts/parasites
   - Reproduction regime
   - Mutation rates for hosts and parasites
   - Co-Evolution ("Red Queen dynamics" -> selection of parasites based on their relative fitness + mutation)
@@ -56,7 +55,7 @@ The host is a diploid organism that can reproduce sexually. With whom the host r
 
 The hosts alleles represent the Peptide Binding Domain (PBD) of MHC-I molecule, which can bind to a repertoire of epitopes. The size of that repertoire is the promiscuity of that MHC-I variant. Which epitopes the MHC-I variant can bind is represented by the 2D-coordinates in the epitope/paratope space, the size of the repertoire is represented by the area covered in the epitope/paratope space.
 
-Fitness calculation is relative (to maintain a constant population size), such that the number of offspring is always equal the number of dying hosts. More details in the fitness calculation section [hosts are sorted by fitness and the top proportion of fittest hosts is resistent the bottom proportion susceptible].
+Fitness calculation is relative (to maintain a constant population size), such that the number of offspring is always equal the number of dying hosts. More details in the fitness calculation Section.
 
 ##### Properties
   - Locus/Loci
@@ -64,37 +63,18 @@ Fitness calculation is relative (to maintain a constant population size), such t
   - Fitness (0 to 1)
   - Fitness increment steps -> host generation time = fitness increment step * parasite generation time (1)
     - Fitness increment value = 1/increment steps
-  - Relative fitness: proportion of surviving/dying hosts each generation
-    - Number of offspring -> depends on fitness calculation; if 50% of hosts die each generation, the remaining 50 need to produce on offspring each (2 gametes per host)
+  - Number of offspring -> depends on fitness calculation; if 50% of hosts die each generation, the remaining 50 need to produce on offspring each (2 gametes)
   - Age
-  - Mutation rate
 
 ##### Rules
-  - Each Host can be infected once by one (-> or maybe multiple?) parasite each generation
-    - Whether is host is resistent or susceptible is determined by the relative fitness (fittest x% of all hosts are resistent, rest is susceptible)
   - If the host is resistent to an infection, fitness is increased by the fitness increment value
   - if the host susceptible to an infection, fitness is reduced by the fitness increment value
   - If fitness is less or equal zero, the host dies and is removed from the pool of hosts
-  - If fitness is greater than one:
-    1. The host will produces two gametes with one allele each
-    2. Determine if mutation occurs and apply it
-    3. Gametes of all reproducing hosts fuse according to the reproduction regieme
+  - If fitness is greater than one, the host reproduces with another host according to the reproduction regime and produces offspring with an inital fitness of the fitness increment value
 
 #### Parasite
 
-The parasite is a haploid organsism that reproduces clonally. The parasites haplotype (single locus/single allele) represents its peptidome as a 2D coordinate on the epitope/paratope space. Fitness, as with the host, is relative. 
-
-##### Properties
-  - Haplotype
-  - Relative fitness: proportion of surviving/dying hosts each generation
-    - Number of offspring -> depends on fitness calculation; if 50% of hosts die each generation, the remaining 50 need to produce on offspring each (2 gametes per host)
-  - Age
-  - Mutation rate
-
-##### Rules
-  - Each Parasite infects a single host each generation
-  - Fitness is sorted and fittest proportion, according to the relative fitness property, survives. All others die.
-  - The surviving fraction reproduces clonally, with mutation when applicable, such that the population size is restored (i.e. as many parsites reproduce as have died) 
+The parasite is a haploid organsism that reproduces clonally. The parasites haplotype represents its peptidome 
 
 ### Infection regime
 
@@ -138,8 +118,6 @@ Either approach of Stefan 2019 (alleles as bitstrings) or approach of Lighten et
   - Generally: Importance of introgression?
   - Is paratope the correct name for the MHC peptide binding domain (PBD)?
   - Peptidome is mostly unique to the specific pathogen -> can the peptidome of a pathogen be represented as a single point in epitope space?
-  - Is the mutation rate per organism or per allele?
-  - NFDS assumes much shorter generation time/higher mutation rates for the coevolution -> generation time as parameter
 
 
 [Lighten]:https://www.nature.com/articles/s41467-017-01183-2
