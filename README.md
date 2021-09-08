@@ -140,7 +140,14 @@ Either approach of Stefan 2019 (alleles as bitstrings) or approach of Lighten et
   - Peptidome is mostly unique to the specific pathogen -> can the peptidome of a pathogen be represented as a single point in epitope space?
   - Is the mutation rate per organism or per allele?
   - NFDS assumes much shorter generation time/higher mutation rates for the coevolution -> generation time as parameter
-
+  - "balancing selection very strong in MHC based on sequence patterns"
+  - MHC class I -> HLA-B
+  - Individual MHC diversity -> Variation in allele numbers range from 1-40
+    - Allele sharing (-> multiple loci can carry the same allele) OR copy number variation
+    - Copy number variation only in MHC, neighbouring genes don't exhibit CNV
+    - Difference in copy number might be adaptive -> more pathogen diversity, higher copy number 
+    - Coevolution of genome structure
+    - More copies -> more "material" for recombination -> evolutionary advantage
 
 [Lighten]:https://www.nature.com/articles/s41467-017-01183-2
 [Ejsmond]:https://www.nature.com/articles/s41467-018-06821-x
