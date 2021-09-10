@@ -142,7 +142,7 @@ Either approach of Stefan 2019 (alleles as bitstrings) or approach of Lighten et
   - NFDS assumes much shorter generation time/higher mutation rates for the coevolution -> generation time as parameter
   - "balancing selection very strong in MHC based on sequence patterns"
   - MHC class I -> HLA-B
-  - Individual MHC diversity -> Variation in allele numbers range from 1-40
+  - Individual MHC diversity -> Variation in allele numbers range can range from 1 to 40 (example numbers)
     - Allele sharing (-> multiple loci can carry the same allele) OR copy number variation
     - Copy number variation only in MHC, neighbouring genes don't exhibit CNV
     - Difference in copy number might be adaptive -> more pathogen diversity, higher copy number 
