@@ -22,20 +22,42 @@ The model is similarly structured to [Lighten et al 2017][Lighten], but with the
 
 ## Input
   - Number of host/parasite "species" (pools to draw alleles from)
+    - [Lighten][Lighten]: 1 host species, 1 parasite species
+    - [Ejsmond][Ejsmond]: 1 host species, 10 parasites species
   - Initial population sizes (population size remains constant during simulation)
+    - [Lighten][Lighten]: 10<sup>2</sup> - 10<sup>4</sup> === # of hosts === # of parasites
+    - [Ejsmond][Ejsmond]: 10<sup>2</sup> - 10<sup>5</sup> === # of hosts === # of parasites
   - Number of alleles per population
-  - MHC promiscouity values (constant or distribution for random initialization)
+    - Both: 2 random alleles per individual -> 1000 pop == 2000 for the hosts, 1000 for the parasites (!not clear! triple check -> check in matlab by changing the plotting starting point to the first generation)
+  - MHC promiscouity (constant or distribution for random initialization)
+    - Both: constant/not considered -> fitness is determined relatively
   - Epitope/paratope space size
+    - Both: 1000*1000 units
   - Infection regime
+    - [Lighten][Lighten]: Each host is infected by one random parasite each generation
+    - [Ejsmond][Ejsmond]: Each host is infected by one random parasite drawn from the 10 available parasite species each generation (!not clear!: so only one 10th of parasites are involved each generation?)
   - Fitness increments for the host (-> defines generation time, see host section)
+    - Both: 0.25 -> host generation time == 4 * parasite generation time
   - Relative fitness value -> ratio of surviving/dying hosts/parasites
+    - Both: top 50 % hosts are resistent (gain 0.25 fitness), bottom 50 % of host are susceptible (loose 0.25 fitness)
+    - Both: top 50 % parasites survive (and reproduce), bottom 50 % of die
   - Reproduction regime
+    - Both:
+      - Hosts with a fitness > 1 reproduce
+        1. Produce 2 gamets with one haplotype each
+        2. All gametes are paired in two and fuse, generating new Hosts
+      - Parasite that survive reproduce two clonal offsring each
   - Mutation rates for hosts and parasites
+    - [Lighten][Lighten]: 10<sup>-1</sup> -> expected heterozygosity of ≈1 with a population size of 10<sup>3</sup>-10<sup>4</sup>
+    - [Ejsmond][Ejsmond]: down to 10<sup>-4</sup> (upper bound for MHC mutation rate)
   - Co-Evolution ("Red Queen dynamics" -> selection of parasites based on their relative fitness + mutation)
+  - Random pathongen seeding (as control)
+    - [Lighten][Lighten]: 100 parasites with random haplotype per generation
   - Strength of NFDS -> magnitude of fitness boost for rare alleles (curve?)
   - Strength of HA/DAA -> implicit in the fitness calculation
   - Strength of FS -> indirectly through infection/reproduction regime
   - Simulation runtime (in generations)
+    - [Ejsmond][Ejsmond]: 10600
 
 ## Output
   - Host/parasite genotype coordinate in epitope/paratope space over time
