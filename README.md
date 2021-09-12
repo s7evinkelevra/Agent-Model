@@ -118,8 +118,31 @@ The parasite is a haploid organsism that reproduces clonally. The parasites hapl
   - Fitness is sorted and fittest proportion, according to the relative fitness property, survives. All others die.
   - The surviving fraction reproduces clonally, with mutation when applicable, such that the population size is restored (i.e. as many parsites reproduce as have died) 
 
-### Infection regime
+### Infection Regime
 
+Every host is infected by one Parasite each generation. How that parasite is selected is determined by the given infection regieme.
+
+#### 1. Random Parasites 
+
+Parasites are drawn from one large pool of every parasite from every species. Host-Parasite interaction is constant and only driven by parasitic diversity. 
+
+#### 2. Fluctuating Parasites over Time
+
+Which parasite species are present is determined by a "scheduele". Example: Generation 1-100 -> species 1, generation 101-200 -> species 2,... etc. 
+
+#### 3. Associated Parasites
+
+Every host is assigned one parasite species and is infected only by parasites drawn from that species. Host still reproduce according to their reproduction regieme. The associated parasite of host offspring is randomly choosen from either parent.
+
+Represents a basic spatial association of parasites to hosts.
+
+#### 4. Fluctuating Parasites over Space
+
+Hosts are infected by the closest individual parasite. Parasites could move every generation in a random or non-random direction or could be redistributed completely in the given space.
+
+#### 5. Fluctuating Parasites over Space and Time 
+
+Combination of 2. and 4.
 
 ### Reproduction Regime
 
