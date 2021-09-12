@@ -1,6 +1,6 @@
 # Agent based Model V1
 
-**Question:** What drives the landmark features of classical MHC-I genes (high polymorphism/TSP/positive selection at the PBD)?
+**Question:** What drives the landmark features of classical MHC-I genes (**high polymorphism**/TSP/positive selection at the PBD)?
 
 **Hypothesis:** [Fluctuating selection as important driver of MHC-I polymorphism, co-evolution possibly only minor effect]
 
@@ -16,7 +16,7 @@ python src/model.py # to run the model
 
 ## The Model
 
-An agent based model simulates actions and interactions of autonomous agents (hosts and parasites) to investigate the behavior of a complex system (i.e. allele frequencies) [[wiki](https://en.wikipedia.org/wiki/Agent-based_model)]. [Complex behavior can arise from these interaction despite seemingly simple rules for the singular agent](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
+An agent based model simulates actions and interactions of autonomous agents (hosts and parasites) to investigate the behavior of a complex system (i.e. allele frequencies) [[wiki](https://en.wikipedia.org/wiki/Agent-based_model)]. [Complex behavior can arise from these interaction despite simple rules for the singular agent](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
 The model is similarly structured to [Lighten et al 2017][Lighten], but with the addition of multiple host- and parasite species with different infection regimes (representing fluctuating selection). As noted in [Ejsmond 2018][Ejsmond], the co-evolution of host-parasite does not account for the high allele count; the introduction of (random/) novel parasites each generation was neccessary (and sufficient!) to drive the high number of alleles. This random seeding of parasites does not seem biologically plausible ("[...] ≈100 entirely new, typically very divergent [parasite] haplotypes in a population of 10,000 individuals."). A more plausible mechanism, similar in effect, could be fluctuating selection: novel parasites don't appear randomly, but fluctuate in time and space and are drawn from a big (but not infinite) pool of parasites (epitopes).
 
@@ -61,14 +61,14 @@ The model is similarly structured to [Lighten et al 2017][Lighten], but with the
 
 ## Output
   - Host/parasite genotype coordinate in epitope/paratope space over time
-  - Allele count
+  - Allele count / effective number of alleles (allele count from a defined subset ob individuals)
   - Allele tracking information (unique id) (TSP)
   - Supertype information -> assigned when first generated (?)
   - Average fitness over time for alleles vs allele count
 
 ## Components
 
-The model has a number of components which can interact with each other. Firstly, the agents. They are the effective unit of the simulation and posses a set of properties (such as alleles) and rules ("reproduce when fitness reaches threshold") and update their properties and act on their rules once each simulation cycle. Secondly, there are the infection regime, reproduction regime and the epitope/paratope space (fitness calculation), which describe the environment the agents act in.
+The model has a number of components which can interact with each other. Firstly, the agents. They are the effective unit of the simulation and posses a set of properties (such as alleles) and rules ("reproduce when fitness reaches threshold") and update their properties and act on their rules once each simulation cycle. Secondly, there are infection regime, reproduction regime and the epitope/paratope space (fitness calculation), which describe the environment the agents act in.
 
 ### Agents
 
@@ -87,7 +87,7 @@ Fitness calculation is relative (to maintain a constant population size), such t
   - Fitness increment steps -> host generation time = fitness increment step * parasite generation time (1)
     - Fitness increment value = 1/increment steps
   - Relative fitness: proportion of surviving/dying hosts each generation
-    - Number of offspring -> depends on fitness calculation; if 50% of hosts die each generation, the remaining 50 need to produce on offspring each (2 gametes per host)
+    - Number of offspring -> depends on fitness calculation; if 50% of hosts die each generation, the remaining 50 % need to produce one offspring each (2 gametes per host)
   - Age
   - Mutation rate
 
@@ -121,14 +121,14 @@ The parasite is a haploid organsism that reproduces clonally. The parasites hapl
 ### Infection regime
 
 
-
-### Reproduction regime
-
+### Reproduction Regime
 
 
-### Fitness calculation
 
-Either approach of Stefan 2019 (alleles as bitstrings) or approach of Lighten et al 2017 (2D epitope/paratope space)
+
+### Fitness Calculation
+
+Either approach of Stefan 2019 (alleles as bitstrings) or approach of [Lighten et al 2017][Lighten] (2D epitope/paratope space).
 
 
 ## Todo 
@@ -150,8 +150,9 @@ Either approach of Stefan 2019 (alleles as bitstrings) or approach of Lighten et
     - Where do signals of positive selection come from?
       - NFDS (positive selection acts on rare alleles)
   - Completely novel parasites rarely appear -> pool of all parasites from which to draw from
+    - Thought: MHC diversity is strongly driven by parasite peptidome diversity -> peptidomes of parasites is largely unique ([Özer 2021][Özer])
   - How important is recombination (with 2 or more loci)
-  - Different mutation rates for host and parasite
+  - Different mutation rates for host and parasite -> maybe ratio between host/parasite mutation rate important
   - Promiscuous and fastidious MHC variants ()
     - Why not evolve in the direction of most promiscuous variant? False-Positive detection of self, fastidious variants possibly advantageous for specific, nasty parasites 
     - Solution: use realistic average promiscuity
@@ -173,3 +174,4 @@ Either approach of Stefan 2019 (alleles as bitstrings) or approach of Lighten et
 
 [Lighten]:https://www.nature.com/articles/s41467-017-01183-2
 [Ejsmond]:https://www.nature.com/articles/s41467-018-06821-x
+[Özer]:https://academic.oup.com/mbe/advance-article/doi/10.1093/molbev/msab176/6295886?login=true
