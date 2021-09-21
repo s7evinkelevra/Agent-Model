@@ -1,4 +1,4 @@
-# Agent based Model V2
+# Agent based Model V1
 
 **Question:** What drives the landmark features of classical MHC-I genes (**high polymorphism**/TSP/positive selection at the PBD)?
 
