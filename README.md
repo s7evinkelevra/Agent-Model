@@ -4,7 +4,7 @@
 
 **Hypothesis:** [Fluctuating selection as important driver of MHC-I polymorphism, co-evolution possibly only minor effect]
 
-**Approach:** Create an agent-based (hosts and parasites as entities) simulation model that can approximate the interaction between multiple hosts and parasites and is able control and integrate the effects of different balancing selection mechanisms (HA/NFDS/FS) and multi-species co-evolution acting on the selection of MHC genes.
+**Approach:** Create an agent-based (hosts and pathogens as entities) simulation model that can approximate the interaction between multiple hosts and pathogens accurately enough such that the model exhibits the effects of different balancing selection mechanisms (HA/NFDS/FS) and multi-species co-evolution acting on the selection of MHC genes.
 
 ```bash
 python src/agent_model_v2.py # to run the model
