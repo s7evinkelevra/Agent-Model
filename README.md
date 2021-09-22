@@ -7,7 +7,7 @@
 **Approach:** Create an agent-based (hosts and parasites as entities) simulation model that can approximate the interaction between multiple hosts and parasites and is able control and integrate the effects of different balancing selection mechanisms (HA/NFDS/FS) and multi-species co-evolution acting on the selection of MHC genes.
 
 ```bash
-python src/model.py # to run the model
+python src/agent_model_v2.py # to run the model
 ```
 
 ## Introduction
