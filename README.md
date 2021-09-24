@@ -200,7 +200,7 @@ Either approach of Stefan 2019 (alleles as bitstrings) or approach of [Lighten e
   - Is the mutation rate per organism or per allele?
   - NFDS assumes much shorter generation time/higher mutation rates for the coevolution -> generation time as parameter
   - "balancing selection very strong in MHC based on sequence patterns"
-  - MHC class I -> HLA-A, HLA-B, HLA-C
+  - MHC class I -> HLA-A, HLA-B, HLA-C (-> ubiquitous expression HLA-A and HLA-B, HLA-C tissue specific)
   - MHC class II -> HLA-DR, HLA-DP, HLA-DQ
   - Individual MHC diversity -> Variation in allele numbers range can range from 1 to 40 (example numbers)
     - Allele sharing (-> multiple loci can carry the same allele) OR copy number variation
@@ -210,6 +210,9 @@ Either approach of Stefan 2019 (alleles as bitstrings) or approach of [Lighten e
     - More copies -> more "material" for recombination -> evolutionary advantage
   - Alleles as nucleotide sequence -> translate to amino acid sequence -> do the fitness calc (sliding window compare with haplotype)
     - Mutation happens in the nucleotide sequence such that you can differentiate between synonymous and non-synonymous mutations
+  - allele frequency database (AF db for HLA)
+  - Very small differences in AS sequence can lead to strong functional differences -> how to incorporate that into the model
+  - Calculate chances of motif appearing in haplotype
 
 [Lighten]:https://www.nature.com/articles/s41467-017-01183-2
 [Ejsmond]:https://www.nature.com/articles/s41467-018-06821-x
