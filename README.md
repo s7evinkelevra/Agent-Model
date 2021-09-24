@@ -4,7 +4,7 @@
 
 **Hypothesis:** [Fluctuating selection as important driver of MHC-I polymorphism, co-evolution possibly only minor effect]
 
-**Approach:** Create an agent-based (hosts and pathogens as entities) simulation model that can approximate the interaction between multiple hosts and pathogens accurately enough such that the model exhibits the effects of different balancing selection mechanisms (HA/NFDS/FS) and multi-species co-evolution acting on the selection of MHC genes.
+**Approach:** Create an agent-based (hosts and pathogens as entities) simulation model that can approximate the interaction between multiple hosts and pathogens accurately, such that the model exhibits the effects of different balancing selection mechanisms (HA/NFDS/FS) and multi-species co-evolution acting on the selection of MHC genes.
 
 ```bash
 python src/agent_model_v2.py # to run the model
@@ -18,15 +18,12 @@ python src/agent_model_v2.py # to run the model
 
 An agent based model simulates actions and interactions of autonomous agents (hosts and pathogens) to investigate the behavior of a complex system (i.e. allele frequencies) [[wiki](https://en.wikipedia.org/wiki/Agent-based_model)]. [Complex behavior can arise from these interaction despite simple rules for the singular agent](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
-To model these interactions, the binding motif of the Peptide Binding Domain (PBD) MHC class-I genes are represented as a amino acid sequence that can match "slices" of the pathogens peptidome. If the motif matches a slice in the patho, and therefore present it to the hosts cell surface, inciting an adaptive immune response. 
+[Biological mechanism of MHC <-> antigen interaction to lead into modelling approach]
 
 
-[Haplotype representation]
-[Allele representation]
+To approximate this interaction, the binding motif of the Peptide Binding Domain (PBD) MHC class-I genes are represented as a amino acid sequence that is aligned to peptides of the same length of the pathogens proteome (peptidome). The motif matching one or multiple peptides derived from the pathogen is analogous the MHC molecule binding to the antigen and presenting it to the hosts cell surface, thus inciting an adaptive immune response. The model assumes this mechanic is the core component driving MHC-pathogen interaction.
+
 [New fitness regieme]
-
-The model is similarly structured to [Lighten et al 2017][Lighten], but with the addition of multiple host- and pathogen species with different infection regimes (representing fluctuating selection). 
-
 
 As noted in [Ejsmond 2018][Ejsmond], the co-evolution of host-pathogen does not account for the high allele count; the introduction of (random/) novel pathogens each generation was neccessary (and sufficient!) to drive the high number of alleles. This random seeding of pathogens does not seem biologically plausible ("[...] ≈100 entirely new, typically very divergent [pathogen] haplotypes in a population of 10,000 individuals."). A more plausible mechanism, similar in effect, could be fluctuating selection: novel pathogens don't appear randomly, but fluctuate in time and space and are drawn from a big (but not infinite) pool of pathogens (epitopes).
 
